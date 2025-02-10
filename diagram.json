@@ -60,7 +60,7 @@
       "top": -163.8,
       "left": 243,
       "rotate": 90,
-      "attrs": { "color": "green" }
+      "attrs": { "color": "blue" }
     },
     {
       "type": "wokwi-pushbutton",
@@ -68,8 +68,16 @@
       "top": -163.8,
       "left": 60.6,
       "rotate": 90,
-      "attrs": { "color": "red" }
-    }
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 185.54,
+      "left": 38.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc6", "top": 144.76, "left": 48, "attrs": {} }
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
@@ -161,10 +169,17 @@
     [ "rgb25:VSS", "gnd5:GND", "green", [ "v0" ] ],
     [ "pico:GND.1", "bb1:bn.25", "black", [ "v0" ] ],
     [ "bb1:bn.13", "bb1:16b.j", "black", [ "v0" ] ],
-    [ "pico:GP11", "bb1:15b.i", "red", [ "v-172.8", "h-38.4" ] ],
-    [ "pico:GP5", "bb1:5t.a", "red", [ "v-163.2", "h-278.4", "v-192", "h76.8" ] ],
+    [ "pico:GP5", "bb1:5t.a", "green", [ "v-163.2", "h-278.4", "v-192", "h76.8" ] ],
     [ "bb1:7b.j", "bb1:bn.6", "black", [ "v0" ] ],
     [ "bb1:26b.j", "bb1:bn.21", "green", [ "v0" ] ],
+    [ "pico:GP6", "bb1:24t.a", "blue", [ "v-134.4", "h105.6", "v-220.8", "h-105.6" ] ],
+    [ "pico:GP12", "bb1:18b.i", "blue", [ "v-182.4", "h9.56" ] ],
+    [ "pico:GP11", "bb1:17b.j", "green", [ "v0" ] ],
+    [ "pico:GP13", "bb1:15b.i", "red", [ "v-144", "h-9.64" ] ],
+    [ "rgb26:R", "bb1:15b.g", "", [ "$bb" ] ],
+    [ "rgb26:COM", "bb1:16b.h", "", [ "$bb" ] ],
+    [ "rgb26:G", "bb1:17b.g", "", [ "$bb" ] ],
+    [ "rgb26:B", "bb1:18b.g", "", [ "$bb" ] ],
     [ "btn1:1.l", "bb1:26t.b", "", [ "$bb" ] ],
     [ "btn1:2.l", "bb1:24t.b", "", [ "$bb" ] ],
     [ "btn1:1.r", "bb1:26b.g", "", [ "$bb" ] ],
@@ -173,13 +188,10 @@
     [ "btn2:2.l", "bb1:5t.b", "", [ "$bb" ] ],
     [ "btn2:1.r", "bb1:7b.g", "", [ "$bb" ] ],
     [ "btn2:2.r", "bb1:5b.g", "", [ "$bb" ] ],
-    [ "rgb26:R", "bb1:15b.g", "", [ "$bb" ] ],
-    [ "rgb26:COM", "bb1:16b.h", "", [ "$bb" ] ],
-    [ "rgb26:G", "bb1:17b.g", "", [ "$bb" ] ],
-    [ "rgb26:B", "bb1:18b.g", "", [ "$bb" ] ],
-    [ "pico:GP6", "bb1:24t.a", "green", [ "v-134.4", "h105.6", "v-220.8", "h-105.6" ] ],
-    [ "pico:GP12", "bb1:18b.i", "blue", [ "v-182.4", "h9.56" ] ],
-    [ "pico:GP13", "bb1:17b.i", "green", [ "v-192", "h9.56" ] ]
+    [ "oled1:VCC", "vcc6:VCC", "red", [ "v0" ] ],
+    [ "oled1:GND", "pico:GND.4", "black", [ "v-57.6", "h76.8" ] ],
+    [ "oled1:SDA", "pico:GP14", "green", [ "v-48", "h67.27" ] ],
+    [ "pico:GP15", "oled1:SCL", "green", [ "v-9.6", "h-67.24" ] ]
   ],
   "dependencies": {}
 }
